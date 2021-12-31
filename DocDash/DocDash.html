@@ -3,7 +3,7 @@
 <html lang="en" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   
-  <title>CodePen Demo</title>
+  <title>Doctor's Dashboard</title>
 
   <meta name="robots" content="noindex">
 
@@ -152,9 +152,7 @@ body {
   </style>
 
   
-<script src="./iframeConsoleRunner-d0f3648046d2aaca07bd0037b9e061a26c74a8a999b75672ad6a638cca641472.js.download"></script>
-<script src="./iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js.download"></script>
-<script src="./iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js.download"></script>
+
 </head>
 
 <body>
@@ -233,6 +231,13 @@ body {
 -------------------------------- */
 .admins .box .admin {
 	background-color: var(--dk-dark-bg);
+ 	width:100%;       
+}
+    
+.admins .admin2 {
+	background-color: var(--dk-dark-bg);
+ 	width:100%;  
+  diplay:block;
 }
 
 .admins .box h3 {
@@ -288,6 +293,68 @@ body {
 	text-align: right;
 	border-radius: 50%;
 }
+
+
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.butn{
+border-radius:12px;
+}
   
 </style>
 <div class="p-4">
@@ -301,7 +368,7 @@ body {
           </div>
         </div>
       </div>
-    <div class="col-lg-3">
+    <button class="col-lg-3 butn" onclick="enable()">
         <div class="statistics">
           <div class=" box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
             <i class="uil-calender fs-2 text-center bg-primary rounded-circle"></i>
@@ -313,7 +380,7 @@ body {
             </div>
           </div>
         </div>
-      </div>
+      </button>
  </section>
 
   <section class="statistics mt-4">
@@ -345,7 +412,9 @@ body {
             <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
             <div class="ms-3">
               <div class="d-flex align-items-center">
-                <h4>Appointments History</h4>
+                <h3 class="mb-0">7</h3> 
+              </div>
+              <h5 class="fs-normal mb-0">Future  Appointments</h5>
                
               </div>
             </div>
@@ -359,7 +428,8 @@ body {
         <div class="col-md-12">
           <div class="box">
             <!-- <h4>Admins:</h4> -->
-            <div class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+	<div class="trigger_popup">
+            <button class="admin d-flex align-items-center rounded-2 p-3 mb-4" onclick="enable()">
               <div class="img">
                 <img class="img-fluid rounded-pill" width="75" height="75" src="img/enhance" alt="admin">
               </div>
@@ -367,17 +437,37 @@ body {
                 <h3 class="fs-5 mb-1">Joge Lucky</h3>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur elit.</p>
               </div>
-            </div>
-            <div class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+            </button>
+	</div>
+<div class="hover_bkgr_fricc" id="enable">
+    <span class="helper"></span>
+    <div>
+        <a class="popupCloseButton" onclick="disable()" id="closebutton">&times;</a>
+        <p>Add any HTML content<br />inside the popup box!</p>
+    </div>
+</div>
+
+<script>
+function enable(){
+document.getElementById("enable").style.display="block";
+}
+
+ function disable(){
+document.getElementById("enable").style.display="none";
+    }
+  
+
+</script>
+      <button class="admin2 d-flex align-items-center rounded-2 p-3 mb-4" onclick="enable()">
               <div class="img">
                 <img class="img-fluid rounded-pill" width="75" height="75" src="img/enhance(1)" alt="admin">
               </div>
               <div class="ms-3">
-                <h3 class="fs-5 mb-1">Joge Lucky</h3>
+                <h3 class="fs-5 mb-1">steve Lucky</h3>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur elit.</p>
               </div>
-            </div>
-            <div class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+            </button>
+            <button class="admin d-flex align-items-center rounded-2 p-3 mb-4" onclick="enable()">
               <div class="img">
                 <img class="img-fluid rounded-pill" width="75" height="75" src="img/enhance(2)" alt="admin">
               </div>
@@ -385,14 +475,14 @@ body {
                 <h3 class="fs-5 mb-1">Joge Lucky</h3>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur elit.</p>
               </div>
-            </div>
+            </button>
           </div>
         </div>
         
         <div class="col-md-12">
           <div class="box">
             <!-- <h4>Moderators:</h4> -->
-            <div class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+            <button class="admin d-flex align-items-center rounded-2 p-3 mb-4" onclick="enable()">
               <div class="img">
                 <img class="img-fluid rounded-pill" width="75" height="75" src="img/enhance(3)" alt="admin">
               </div>
@@ -400,8 +490,8 @@ body {
                 <h3 class="fs-5 mb-1">Joge Lucky</h3>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur elit.</p>
               </div>
-            </div>
-            <div class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+            </button>
+            <button class="admin d-flex align-items-center rounded-2 p-3 mb-4" onclick="enable()">
               <div class="img">
                 <img class="img-fluid rounded-pill" width="75" height="75" src="img/enhance(4)" alt="admin">
               </div>
@@ -409,8 +499,8 @@ body {
                 <h3 class="fs-5 mb-1">Joge Lucky</h3>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur elit.</p>
               </div>
-            </div>
-            <div class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+            </button>
+            <button class="admin d-flex align-items-center rounded-2 p-3 mb-4" onclick="enable()">
               <div class="img">
                 <img class="img-fluid rounded-pill" width="75" height="75" src="img/enhance(5)" alt="admin">
               </div>
@@ -418,7 +508,7 @@ body {
                 <h3 class="fs-5 mb-1">Joge Lucky</h3>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur elit.</p>
               </div>
-            </div>
+            </button>
           </div>
         </div>
       </div>
@@ -459,10 +549,6 @@ body {
 
 </div>
   
-<script src="./stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js.download"></script>
-<script src="./Chart.bundle.js.download"></script>
-<script src="./bootstrap.bundle.min.js.download"></script>
-  <script src="./pen.js.download" crossorigin=""></script>
 
 
 </body></html>
